@@ -1,6 +1,4 @@
-# Nyayank Law Firm Website
 
-A modern, responsive website for Nyayank Advocates & IP Attorneys, a full-service law firm based in Dehradun.
 
 ## Features
 
@@ -24,7 +22,7 @@ A modern, responsive website for Nyayank Advocates & IP Attorneys, a full-servic
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/nyayank-law.git
+git clone https://github.com/pradeepkumar97597/nyayank-web.git
 ```
 
 2. Install dependencies:
