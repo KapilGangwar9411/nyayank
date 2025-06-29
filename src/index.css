@@ -1,3 +1,30 @@
+/* Font declarations */
+@font-face {
+  font-family: 'Kenoky Coffekan';
+  src: local('Kenoky Coffekan'),
+       url('./assets/fonts/Kenoky-Coffekan-Normal.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+000-5FF; /* Latin glyphs */
+}
+
+@font-face {
+  font-family: 'k2d';
+  src: local('k2d'),
+       url('./assets/fonts/K2D-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+000-5FF; /* Latin glyphs */
+}
+
+/* Fallback fonts */
+:root {
+  --font-primary: 'Kenoky Coffekan', Georgia, 'Times New Roman', serif;
+  --font-secondary: 'k2d', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

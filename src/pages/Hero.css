@@ -65,7 +65,7 @@ body {
 }
 
 .hero-welcome {
-  font-family: 'Kenoky Coffekan', sans-serif;
+  font-family: var(--font-primary);
   font-size: clamp(2rem, 5vw, 3.5rem);
   color: #ffffff;
   margin-bottom: 0.5rem;
@@ -73,7 +73,7 @@ body {
 }
 
 .hero-title {
-  font-family: 'Kenoky Coffekan', sans-serif;
+  font-family: var(--font-primary);
   font-size: clamp(2.5rem, 6vw, 5.2rem);
   color: #ffffff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -82,7 +82,7 @@ body {
 }
 
 .hero-tagline {
-  font-family: 'k2d', sans-serif;
+  font-family: var(--font-secondary);
   font-size: clamp(1.2rem, 3vw, 2rem);
   color: #ffffff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
