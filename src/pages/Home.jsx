@@ -3,7 +3,7 @@ import './Home.css';
 import Navbar from './navbar';
 import Hero from './Hero';
 import About from './About_us';
-import Practice from './Practice_Areas';
+import Practice from './practice_areas';
 import Contact from './Contact';
 import Footer from '../components/Footer';
 
