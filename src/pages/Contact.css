@@ -257,7 +257,7 @@
 
 @media screen and (max-width: 480px) {
   .contact-container {
-    padding: 4rem 0 2rem;
+    padding: 4rem 1.2rem 2rem;
   }
 
   .contact-main {
