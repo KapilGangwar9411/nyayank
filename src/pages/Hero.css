@@ -28,7 +28,10 @@ body {
   position: relative;
   left: 0;
   right: 0;
-  background: #1a1a1a; /* Dark background while image loads */
+  background: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-image {
@@ -62,6 +65,10 @@ body {
   width: 90%;
   max-width: 1200px;
   padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-welcome {
@@ -70,6 +77,8 @@ body {
   color: #ffffff;
   margin-bottom: 0.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  text-align: center;
 }
 
 .hero-title {
@@ -79,6 +88,8 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   margin-top: clamp(1.5rem, 3vw, 3.5rem);
   line-height: 1.2;
+  width: 100%;
+  text-align: center;
 }
 
 .hero-tagline {
@@ -89,6 +100,8 @@ body {
   opacity: 0.9;
   margin-top: clamp(0.8rem, 2vw, 1rem);
   line-height: 1.4;
+  width: 100%;
+  text-align: center;
 }
 
 .hero-overlay {
@@ -133,13 +146,14 @@ body {
 
 @media (max-width: 480px) {
   .hero-image {
-    transform: scale(1.8);
+    transform: scale(1);
     object-position: center 25%;
   }
 
   .hero-text-container {
-    top: 55%;
-    padding: 0 10px;
+    top: 50%;
+    padding: 0 18px;
+    width: 100%;
   }
 
   .hero-welcome {
@@ -149,11 +163,12 @@ body {
 
   .hero-title {
     margin-top: 5rem;
-    font-size: 3.5rem;
+    font-size: 4rem;
   }
 
   .hero-tagline {
     margin-top: 5rem;
+    font-size: 1.5rem;
   }
 
   .hero-overlay {

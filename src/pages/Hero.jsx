@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import lawOfficeImage from '../assets/images/law-bg1.png';
+import lawOfficeImage from '../assets/images/law-new.png';
 import './Hero.css';
 
 const Hero = () => {
