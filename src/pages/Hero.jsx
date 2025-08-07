@@ -4,16 +4,14 @@ import lawOfficeImage from '../assets/images/test.png';
 import './Hero.css';
 
 const Hero = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // This effect runs once on component mount.
-    // We'll use a CSS class to control the animations for all elements.
-    setIsLoaded(true);
+    setIsMounted(true);
   }, []);
 
   return (
-    <div className={`hero-container ${isLoaded ? 'loaded' : ''}`}>
+    <div className={`hero-container ${isMounted ? 'is-mounted' : ''}`}>
       <div 
         className="hero-image"
         style={{ backgroundImage: `url(${lawOfficeImage})` }}
