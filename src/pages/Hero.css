@@ -26,8 +26,6 @@ body {
   height: 100vh;
   overflow: hidden;
   position: relative;
-  left: 0;
-  right: 0;
   background: #1a1a1a;
   display: flex;
   justify-content: center;
@@ -35,33 +33,29 @@ body {
 }
 
 .hero-image {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  object-position: center;
-  display: block;
+  width: 100%;
+  height: 100%;
   position: absolute;
+  top: 0;
   left: 0;
-  right: 0;
-  transform: scale(1);
-  transition: transform 0.3s ease, opacity 0.5s ease;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.1);
   opacity: 0;
+  transition: transform 10s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 1s ease-in-out;
   will-change: transform, opacity;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
 }
 
-.hero-image.loaded {
+/* Ken Burns effect on load */
+.hero-container.loaded .hero-image {
   opacity: 1;
+  transform: scale(1);
 }
 
 .hero-text-container {
-  position: absolute;
-  top: 65%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative; /* Changed from absolute */
   text-align: center;
-  z-index: 1;
+  z-index: 2; /* Ensure text is above overlay */
   width: 90%;
   max-width: 1200px;
   padding: 0 20px;
@@ -71,37 +65,57 @@ body {
   justify-content: center;
 }
 
+/* Animation base styles */
+.hero-welcome, .hero-title, .hero-tagline {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  width: 100%;
+}
+
+/* Staggered animation on load */
+.hero-container.loaded .hero-welcome {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.5s;
+}
+
+.hero-container.loaded .hero-title {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.8s;
+}
+
+.hero-container.loaded .hero-tagline {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 1.1s;
+}
+
 .hero-welcome {
   font-family: var(--font-primary);
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  color: #ffffff;
-  margin-bottom: 0.5rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  width: 100%;
-  text-align: center;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: #e0e0e0;
 }
 
 .hero-title {
   font-family: var(--font-primary);
-  font-size: clamp(2.5rem, 6vw, 5.2rem);
+  font-size: clamp(2.5rem, 7vw, 6.5rem);
   color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  margin-top: clamp(1.5rem, 3vw, 3.5rem);
-  line-height: 1.2;
-  width: 100%;
-  text-align: center;
+  margin-top: 2rem;
+  line-height: 1.1;
+  font-weight: bold;
 }
 
 .hero-tagline {
   font-family: var(--font-secondary);
-  font-size: clamp(1.2rem, 3vw, 2rem);
-  color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+  color: #dcdcdc;
   opacity: 0.9;
-  margin-top: clamp(0.8rem, 2vw, 1rem);
+  margin-top: 4.5rem;
   line-height: 1.4;
-  width: 100%;
-  text-align: center;
+  max-width: 800px;
 }
 
 .hero-overlay {
@@ -112,73 +126,39 @@ body {
   bottom: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.2),
-    rgba(0, 0, 0, 0.3),
-    rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 0.85)
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.8) 100%
   );
   z-index: 1;
 }
 
 @media (max-width: 768px) {
-  .hero-image {
-    transform: scale(1.4);
-    object-position: center 20%;
-  }
-
   .hero-text-container {
-    top: 60%;
-    padding: 0 15px;
+    justify-content: center;
+    padding: 0 25px;
+  }
+  
+  .hero-title {
+     font-size: clamp(3rem, 10vw, 5rem);
   }
 
-  .hero-overlay {
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.3),
-      rgba(0, 0, 0, 0.4),
-      rgba(0, 0, 0, 0.6),
-      rgba(0, 0, 0, 0.8),
-      rgba(0, 0, 0, 0.9)
-    );
+  .hero-tagline {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    margin-top: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-image {
-    transform: scale(1);
-    object-position: center 25%;
-  }
-
   .hero-text-container {
-    top: 50%;
-    padding: 0 18px;
-    width: 100%;
-  }
-
-  .hero-welcome {
-    position: relative;
-    top: 3rem;
+    padding: 0 20px;
   }
 
   .hero-title {
-    margin-top: 5rem;
-    font-size: 4rem;
+    line-height: 1.2;
   }
 
   .hero-tagline {
-    margin-top: 5rem;
-    font-size: 1.5rem;
-  }
-
-  .hero-overlay {
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.4),
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.7),
-      rgba(0, 0, 0, 0.85),
-      rgba(0, 0, 0, 0.95)
-    );
+    margin-top: 1rem;
   }
 }

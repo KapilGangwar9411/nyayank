@@ -1,28 +1,24 @@
+"use client";
 import { useState, useEffect } from 'react';
-import lawOfficeImage from '../assets/images/law-new.png';
+import lawOfficeImage from '../assets/images/test.png';
 import './Hero.css';
 
 const Hero = () => {
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    const img = new Image();
-    img.src = lawOfficeImage;
-    img.onload = () => {
-      setImageLoaded(true);
-    };
+    // This effect runs once on component mount.
+    // We'll use a CSS class to control the animations for all elements.
+    setIsLoaded(true);
   }, []);
 
   return (
-    <div className="hero-container">
-      <img 
-        src={lawOfficeImage} 
-        alt="Law Office" 
-        className={`hero-image ${imageLoaded ? 'loaded' : ''}`}
-        loading="eager"
-        decoding="async"
-        onLoad={() => setImageLoaded(true)}
-      />
+    <div className={`hero-container ${isLoaded ? 'loaded' : ''}`}>
+      <div 
+        className="hero-image"
+        style={{ backgroundImage: `url(${lawOfficeImage})` }}
+        aria-label="Law Office Background"
+      ></div>
       <div className="hero-overlay"></div>
       <div className="hero-text-container">
         <p className="hero-welcome">Welcome to</p>
