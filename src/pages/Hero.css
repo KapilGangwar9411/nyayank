@@ -1,12 +1,13 @@
 @font-face {
   font-family: 'Kenoky Coffekan';
-  src: url('../assets/fonts/Kenoky-Coffekan-Normal.ttf') format('truetype');
+  src: url('/fonts/Kenoky-Coffekan-Normal.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'k2d';
-  src: url('../assets/fonts/K2D-Light.ttf') format('truetype');
+  src: url('/fonts/K2D-Light.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -26,29 +27,47 @@ body {
   height: 100vh;
   overflow: hidden;
   position: relative;
-  background: #1a1a1a; /* Fallback background color */
+  background: #1a1a1a;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.hero-image {
-  width: 100%;
-  height: 100%;
+.hero-container::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/test.webp');
   background-size: cover;
   background-position: center;
+  
   transform: scale(1.1);
   opacity: 0;
-  /* Smooth transition for opacity and the Ken Burns effect */
   transition: transform 10s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 1.5s ease-in-out;
   will-change: transform, opacity;
+  z-index: 1;
 }
 
-/* Ken Burns effect starts when the component is mounted */
-.hero-container.is-mounted .hero-image {
+.hero-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  z-index: 2;
+}
+
+.hero-container.is-mounted::before {
   opacity: 1;
   transform: scale(1);
 }
@@ -56,7 +75,7 @@ body {
 .hero-text-container {
   position: relative;
   text-align: center;
-  z-index: 2;
+  z-index: 3;
   width: 90%;
   max-width: 1200px;
   padding: 0 20px;
@@ -66,7 +85,6 @@ body {
   justify-content: center;
 }
 
-/* Animation base styles */
 .hero-welcome, .hero-title, .hero-tagline {
   opacity: 0;
   transform: translateY(20px);
@@ -75,7 +93,6 @@ body {
   width: 100%;
 }
 
-/* Staggered text animation on mount */
 .hero-container.is-mounted .hero-welcome {
   opacity: 1;
   transform: translateY(0);
@@ -95,13 +112,13 @@ body {
 }
 
 .hero-welcome {
-  font-family: var(--font-primary);
+  font-family: 'Kenoky Coffekan', sans-serif;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   color: #e0e0e0;
 }
 
 .hero-title {
-  font-family: var(--font-primary);
+  font-family: 'Kenoky Coffekan', sans-serif;
   font-size: clamp(2.5rem, 7vw, 6.5rem);
   color: #ffffff;
   margin-top: 2rem;
@@ -110,28 +127,13 @@ body {
 }
 
 .hero-tagline {
-  font-family: var(--font-secondary);
+  font-family: 'k2d', sans-serif;
   font-size: clamp(1.1rem, 2.5vw, 1.8rem);
   color: #dcdcdc;
   opacity: 0.9;
   margin-top: 4.5rem;
   line-height: 1.4;
   max-width: 800px;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.1) 0%,
-    rgba(0, 0, 0, 0.3) 50%,
-    rgba(0, 0, 0, 0.8) 100%
-  );
-  z-index: 1;
 }
 
 @media (max-width: 768px) {
@@ -141,7 +143,7 @@ body {
   }
   
   .hero-title {
-     font-size: clamp(3rem, 10vw, 5rem);
+    font-size: clamp(3rem, 10vw, 5rem);
   }
 
   .hero-tagline {
@@ -155,11 +157,20 @@ body {
     padding: 0 20px;
   }
 
+  .hero-welcome{
+    font-size: 2rem;
+    position: relative;
+    bottom: -1.4rem;
+  }
+
   .hero-title {
     line-height: 1.2;
+    font-size: 3.6rem;
   }
 
   .hero-tagline {
-    margin-top: 1rem;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+
   }
 }

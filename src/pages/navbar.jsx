@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './navbar.css';
-import logo from '../assets/images/logo.png';
+import logo from '/images/logo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,8 +14,6 @@ const Navbar = () => {
       if (aboutSection && contactSection) {
         const aboutRect = aboutSection.getBoundingClientRect();
         const contactRect = contactSection.getBoundingClientRect();
-        
-        // Check if either white section is in view
         const isAboutVisible = aboutRect.top <= 50 && aboutRect.bottom >= 50;
         const isContactVisible = contactRect.top <= 50 && contactRect.bottom >= 50;
         
