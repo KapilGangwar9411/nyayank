@@ -6,6 +6,7 @@ import Practice from './pages/practice_areas'
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
 import DisclaimerPopup from './components/DisclaimerPopup'
+import WhatsAppButton from './components/WhatsAppButton'
 import './App.css'
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
         </div>
       </main>
       <DisclaimerPopup />
+      <WhatsAppButton />
     </div>
   )
 }
