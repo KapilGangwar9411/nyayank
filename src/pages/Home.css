@@ -1,0 +1,63 @@
+#fp-nav ul li a span,
+.fp-slidesNav ul li a span {
+  background: #c5a45d !important;
+}
+.fp-tooltip {
+  color: #c5a45d !important;
+  font-family: 'k2d', sans-serif;
+}
+
+.section {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #1a1a1a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove fullPage.js specific styles */
+#fp-nav,
+.fp-slidesNav {
+  display: none !important;
+}
+
+.navbar {
+  z-index: 1000;
+}
+
+.fp-watermark {
+  display: none !important;
+}
+
+#fp-nav {
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+#fp-nav:hover {
+  opacity: 1;
+}
+
+.contact-footer-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-container {
+  width: 100%;
+  overflow-x: hidden;
+} 
